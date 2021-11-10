@@ -23,7 +23,7 @@ public class graphhEx10 {
     public static int n, m;
     public static int[] parent = new int[200001]; // 부모 테이블 초기화하기
     // 모든 간선을 담을 리스트와, 최종 비용을 담을 변수
-    public static ArrayList<Edge> edges = new ArrayList<>();
+    public static ArrayList<Edge> edge = new ArrayList<>();
     public static int result = 0;
 
     // 특정 원소가 속한 집합을 찾기
@@ -56,18 +56,18 @@ public class graphhEx10 {
 	            int x = sc.nextInt();
 	            int y = sc.nextInt();
 	            int z = sc.nextInt();
-	            edges.add(new Edge(z, x, y));
+	            edge.add(new Edge(z, x, y));
 	        }
 
 	        // 간선을 비용순으로 정렬
-	        Collections.sort(edges);
+	        Collections.sort(edge);
 	        int total = 0; // 전체 가로등 비용
 
 	        // 간선을 하나씩 확인하며
-	        for (int i = 0; i < edges.size(); i++) {
-	            int cost = edges.get(i).getDistance();
-	            int a = edges.get(i).getNodeA();
-	            int b = edges.get(i).getNodeB();
+	        for (int i = 0; i < edge.size(); i++) {
+	            int cost = edge.get(i).getDistance();
+	            int a = edge.get(i).getNodeA();
+	            int b = edge.get(i).getNodeB();
 	            total += cost;
 	            // 사이클이 발생하지 않는 경우에만 집합에 포함
 	            if (findParent(a) != findParent(b)) {
